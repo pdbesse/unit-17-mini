@@ -1,2 +1,4 @@
 .DS_Store
 addendum/
+package-lock.json
+node_modules/

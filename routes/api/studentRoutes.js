@@ -6,6 +6,7 @@ const {
   deleteStudent,
   addAssignment,
   removeAssignment,
+  headCount,
 } = require('../../controllers/studentController');
 
 // /api/students
@@ -19,5 +20,7 @@ router.route('/:studentId/assignments').post(addAssignment);
 
 // /api/students/:studentId/assignments/:assignmentId
 router.route('/:studentId/assignments/:assignmentId').delete(removeAssignment);
+
+router.route('/headcount').get(headCount);
 
 module.exports = router;
