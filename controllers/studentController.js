@@ -11,23 +11,25 @@ const { Student, Course } = require('../models');
 const grade = async (studentId) =>
   Student.aggregate([
     {
+      $match: {_id: ObjectId(studentId)}
+    },
+    {
       $unwind: '$assignments',
     },
     {
-      // Your code here
+      $avg: '$score'
     },
   ]);
 
 module.exports = {
-  headCount () {
-  Student.count()
-    // Your code here
+//   headCount () {
+//   Student.count()
+//     // Your code here
 
-    .then((numberOfStudents) => {res.json(numberOfStudents)
-    console.log(numberOfStudents)})
+//     .then((numberOfStudents) => {res.json(numberOfStudents)
+//     console.log(numberOfStudents)})
   
-},
-
+// },
   // Get all students
   getStudents(req, res) {
     Student.find()
